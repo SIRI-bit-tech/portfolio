@@ -1,16 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowDown, ArrowRight } from "lucide-react"
 import { Button } from "./ui/button"
 import { Card } from "./ui/card"
 import { Badge } from "./ui/badge"
+import { ImageWithFallback } from "./image-with-fallback"
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center py-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center py-20 overflow-hidden" aria-labelledby="hero-heading">
       {/* Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -right-1/2 w-[100rem] h-[100rem] opacity-20">
@@ -36,12 +36,12 @@ const Hero = () => {
                   Available for freelance work
                 </Badge>
               </motion.div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
+              <h1 id="hero-heading" className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
                 <span className="text-brightOrange block mb-2">Hello, I&apos;m</span>
-                <span className="text-white">Siri</span>
+                <span className="text-deepOlive dark:text-white">Siri</span>
               </h1>
               <h2 className="text-2xl sm:text-3xl md:text-4xl text-lightTeal font-semibold">Full Stack Developer</h2>
-              <p className="text-lg text-gray-300 max-w-lg">
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-lg">
                 I build exceptional digital experiences with modern technologies. Specializing in creating responsive,
                 user-friendly applications with clean code and intuitive design.
               </p>
@@ -63,16 +63,16 @@ const Hero = () => {
 
             <div className="flex gap-6">
               <Card className="bg-[#2A3C4A]/50 border-[#3A4C5A] p-4">
-                <div className="text-2xl font-bold text-white mb-1">5+</div>
-                <div className="text-sm text-gray-300">Years of Experience</div>
+                <div className="text-2xl font-bold text-deepOlive dark:text-white mb-1">5+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Years of Experience</div>
               </Card>
               <Card className="bg-[#2A3C4A]/50 border-[#3A4C5A] p-4">
-                <div className="text-2xl font-bold text-white mb-1">50+</div>
-                <div className="text-sm text-gray-300">Projects Completed</div>
+                <div className="text-2xl font-bold text-deepOlive dark:text-white mb-1">50+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Projects Completed</div>
               </Card>
               <Card className="bg-[#2A3C4A]/50 border-[#3A4C5A] p-4">
-                <div className="text-2xl font-bold text-white mb-1">30+</div>
-                <div className="text-sm text-gray-300">Happy Clients</div>
+                <div className="text-2xl font-bold text-deepOlive dark:text-white mb-1">30+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-300">Happy Clients</div>
               </Card>
             </div>
           </motion.div>
@@ -90,12 +90,14 @@ const Hero = () => {
 
               {/* Profile image container */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-lightTeal/30 backdrop-blur-sm">
-                <Image
-                  src="/profile-pic.jpeg" // Replace with your actual profile picture
+                <ImageWithFallback
+                  src="/profile-pic.jpeg"
+                  fallbackSrc="/profile-pic.jpeg"
                   alt="Siri - Full Stack Developer"
                   fill
                   className="object-cover"
                   priority
+                  sizes="(max-width: 768px) 100vw, 500px"
                 />
               </div>
 
@@ -109,7 +111,13 @@ const Hero = () => {
                 <Card className="bg-[#2A3C4A]/90 border-[#3A4C5A] p-3 backdrop-blur-sm">
                   <div className="flex items-center gap-3">
                     <div className="relative h-10 w-10 rounded-full overflow-hidden border border-lightTeal/30">
-                      <Image src="/profile-pic.jpeg" alt="Profile thumbnail" fill className="object-cover" />
+                      <ImageWithFallback
+                        src="/Linux.png"
+                        fallbackSrc="/Linux.png"
+                        alt="Profile thumbnail"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <span className="text-sm text-white">Available for hire</span>
                   </div>
@@ -126,7 +134,13 @@ const Hero = () => {
                 <Card className="bg-[#2A3C4A]/90 border-[#3A4C5A] p-3 backdrop-blur-sm">
                   <div className="flex items-center gap-3">
                     <div className="relative h-10 w-10 rounded-full overflow-hidden border border-lightTeal/30">
-                      <Image src="/Atom.png" alt="Technology icon" fill className="object-cover" />
+                      <ImageWithFallback
+                        src="/Atom.png"
+                        fallbackSrc="/Atom.png"
+                        alt="Technology icon"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                     <span className="text-sm text-white">🚀 Let&apos;s build something amazing</span>
                   </div>
@@ -145,10 +159,11 @@ const Hero = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full animate-bounce text-gray-400 hover:text-white"
+            className="rounded-full animate-bounce text-gray-400 hover:text-deepOlive dark:hover:text-white"
             onClick={() => {
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })
             }}
+            aria-label="Scroll to projects section"
           >
             <ArrowDown className="h-6 w-6" />
           </Button>

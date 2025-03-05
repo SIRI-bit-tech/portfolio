@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/app/components/ui/button"
+import { ImageWithFallback } from "@/app/components/image-with-fallback"
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -55,13 +55,21 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-white/95 dark:bg-deepOlive/95 backdrop-blur-sm shadow-lg" : "bg-transparent"
       }`}
+      aria-label="Main navigation"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3" aria-label="SiriDev home">
               <div className="relative h-12 w-12 sm:h-16 sm:w-16">
-                <Image src="/logo.jpeg" alt="SiriDev Logo" fill className="object-contain" priority />
+                <ImageWithFallback
+                  src="/logo.jpeg"
+                  fallbackSrc="/placeholder.svg?height=64&width=64"
+                  alt="SiriDev Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
               </div>
               <span className="text-2xl sm:text-3xl font-bold text-brightOrange">SiriDev</span>
             </Link>
@@ -77,6 +85,7 @@ const Navbar = () => {
                     ? "text-brightOrange"
                     : "text-deepOlive dark:text-white hover:text-brightOrange dark:hover:text-brightOrange"
                 } transition-colors duration-300 text-lg font-medium`}
+                aria-current={isActive(link.href) ? "page" : undefined}
               >
                 {link.name}
               </Link>
@@ -88,7 +97,7 @@ const Navbar = () => {
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="ml-4"
-                aria-label="Toggle theme"
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               >
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5 text-white" />
@@ -105,7 +114,7 @@ const Navbar = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                aria-label="Toggle theme"
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
               >
                 {theme === "dark" ? (
                   <Sun className="h-5 w-5 text-white" />
@@ -119,6 +128,8 @@ const Navbar = () => {
               onClick={toggleMenu}
               className="p-2 rounded-md text-deepOlive dark:text-white hover:bg-gray-200 dark:hover:bg-deepOlive-800"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -128,7 +139,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-deepOlive/95 backdrop-blur-sm shadow-lg">
+        <div id="mobile-menu" className="md:hidden bg-white/95 dark:bg-deepOlive/95 backdrop-blur-sm shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
               <Link
@@ -140,6 +151,7 @@ const Navbar = () => {
                     : "text-deepOlive dark:text-white hover:bg-gray-200 dark:hover:bg-deepOlive-800"
                 }`}
                 onClick={() => setIsOpen(false)}
+                aria-current={isActive(link.href) ? "page" : undefined}
               >
                 {link.name}
               </Link>

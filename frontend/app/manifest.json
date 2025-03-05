@@ -1,0 +1,22 @@
+{
+  "name": "SiriDev Portfolio",
+  "short_name": "SiriDev",
+  "description": "Professional portfolio of SiriDev, a full-stack developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B2936",
+  "theme_color": "#D1743F",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+
