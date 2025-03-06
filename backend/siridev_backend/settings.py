@@ -78,9 +78,12 @@ WSGI_APPLICATION = 'siridev_backend.wsgi.application'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://siridev.com",
-    os.environ.get('FRONTEND_URL', ''),
+    "https://siridev-frontend.onrender.com",
 ]
+
+# For development
+if DEBUG:
+    CORS_ALLOWED_ORIGINS += ["http://localhost:3000"]
 
 CORS_ALLOW_CREDENTIALS = True
 
