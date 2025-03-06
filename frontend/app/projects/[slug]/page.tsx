@@ -4,10 +4,10 @@ import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
 import Image from "next/image"
 import { Github, ExternalLink, ArrowLeft } from "lucide-react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/app/components/ui/card"
-import { Badge } from "@/app/components/ui/badge"
-import { Button } from "@/app/components/ui/button"
-import { TypographyH1, TypographyP } from "@/app/components/ui/typography"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { TypographyH1, TypographyP } from "@/components/ui/typography"
 
 interface Project {
     id: number
@@ -214,4 +214,3 @@ export default function ProjectPage() {
         </div>
     )
 }
-

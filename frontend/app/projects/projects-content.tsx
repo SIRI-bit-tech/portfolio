@@ -1,15 +1,14 @@
 "use client"
-"use client"
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { Github, ExternalLink } from "lucide-react"
-import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "@/app/components/ui/card"
-import { Badge } from "@/app/components/ui/badge"
-import { Button } from "@/app/components/ui/button"
-import { TypographyH1, TypographyLead } from "@/app/components/ui/typography"
+import { Card, CardContent, CardDescription, CardFooter, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { TypographyH1, TypographyLead } from "@/components/ui/typography"
 
 interface Project {
     id: number
@@ -243,4 +242,3 @@ export default function ProjectsPage() {
         </div>
     )
 }
-
