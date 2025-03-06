@@ -5,9 +5,9 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, CheckCircle, AlertCircle } from "lucide-react"
-import { subscribeToNewsletter } from "@/app/lib/mailchimp"
-import { Button } from "@/app/components/ui/button"
-import { Input } from "@/app/components/ui/input"
+import { subscribe } from "@/lib/mailchimp"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 const Newsletter = () => {
   const [email, setEmail] = useState("")
@@ -22,7 +22,7 @@ const Newsletter = () => {
     try {
       setStatus("loading")
 
-      const result = await subscribeToNewsletter(email)
+      const result = await subscribe(email)
 
       if (result.success) {
         setStatus("success")
@@ -145,4 +145,3 @@ const Newsletter = () => {
 }
 
 export default Newsletter
-

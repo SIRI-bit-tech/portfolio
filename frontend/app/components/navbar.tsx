@@ -5,8 +5,8 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { Button } from "@/app/components/ui/button"
-import { ImageWithFallback } from "@/app/components/image-with-fallback"
+import { Button } from "@/components/ui/button"
+import { ImageWithFallback } from "@/components/image-with-fallback"
 
 const Navbar = () => {
   const pathname = usePathname()
@@ -125,15 +125,17 @@ const Navbar = () => {
               </Button>
             )}
 
-            <button
+            <Button
               onClick={toggleMenu}
-              className="p-2 rounded-md text-deepOlive dark:text-white hover:bg-gray-200 dark:hover:bg-deepOlive-800"
+              variant="ghost"
+              size="icon"
+              className="text-deepOlive dark:text-white hover:bg-gray-200 dark:hover:bg-deepOlive-800"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
+            </Button>
           </div>
         </div>
       </div>
@@ -165,4 +167,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
