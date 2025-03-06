@@ -92,7 +92,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-lightTeal/30 backdrop-blur-sm">
                 <ImageWithFallback
                   src="/profile-pic.jpeg"
-                  fallbackSrc="/profile-pic.jpeg"
+                  fallbackSrc="profile-pic.jpeg"
                   alt="Siri - Full Stack Developer"
                   fill
                   className="object-cover"
@@ -114,9 +114,10 @@ const Hero = () => {
                       <ImageWithFallback
                         src="/Linux.png"
                         fallbackSrc="/Linux.png"
-                        alt="Profile thumbnail"
+                        alt="Linux icon"
                         fill
                         className="object-cover"
+                        sizes="40px"
                       />
                     </div>
                     <span className="text-sm text-white">Available for hire</span>
@@ -137,9 +138,10 @@ const Hero = () => {
                       <ImageWithFallback
                         src="/Atom.png"
                         fallbackSrc="/Atom.png"
-                        alt="Technology icon"
+                        alt="Atom icon"
                         fill
                         className="object-cover"
+                        sizes="40px"
                       />
                     </div>
                     <span className="text-sm text-white">🚀 Let&apos;s build something amazing</span>

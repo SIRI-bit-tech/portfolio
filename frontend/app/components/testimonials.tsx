@@ -132,6 +132,7 @@ const Testimonials = () => {
                               src={testimonials[currentIndex].avatar || "/placeholder.svg?height=100&width=100"}
                               alt={testimonials[currentIndex].name}
                               fill
+                              sizes="(max-width: 768px) 64px, 64px"
                               className="object-cover"
                             />
                           </div>

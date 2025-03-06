@@ -69,6 +69,7 @@ const Navbar = () => {
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 768px) 48px, 64px"
                 />
               </div>
               <span className="text-2xl sm:text-3xl font-bold text-brightOrange">SiriDev</span>
