@@ -2,9 +2,9 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/app/components/navbar"
-import { ThemeProvider } from "@/app/components/theme-provider"
-import { SkipToContent } from "@/app/components/skip-to-content"
+import Navbar from "@/components/navbar"
+import { ThemeProvider } from "@/components/theme-provider"
+import { SkipToContent } from "@/components/skip-to-content"
 
 // Optimize font loading
 const inter = Inter({
@@ -77,4 +77,3 @@ export default function RootLayout({
     </html>
   )
 }
-

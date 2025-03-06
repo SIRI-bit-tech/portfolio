@@ -1,14 +1,14 @@
 import { Suspense } from "react"
 import type { Metadata } from "next"
-import Hero from "@/app/components/hero"
-import Projects from "@/app/components/projects"
-import Skills from "@/app/components/skills"
-import Testimonials from "@/app/components/testimonials"
+import Hero from "@/components/hero"
+import Projects from "@/components/projects"
+import Skills from "@/components/skills"
+import Testimonials from "@/components/testimonials"
 // import Contact from "@/components/contact"
-import Newsletter from "@/app/components/newsletter"
-import Footer from "@/app/components/footer"
-import Loading from "@/app/components/loading"
-import { JsonLd } from "@/app/components/json-ld"
+import Newsletter from "@/components/newsletter"
+import Footer from "@/components/footer"
+import Loading from "@/components/loading"
+import { JsonLd } from "@/components/json-ld"
 
 export const metadata: Metadata = {
   title: "SiriDev | Full Stack Developer",
@@ -50,4 +50,3 @@ export default function Home() {
     </>
   )
 }
-
