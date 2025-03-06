@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, CheckCircle, AlertCircle } from "lucide-react"
-import { subscribe } from "@/lib/mailchimp"
+import { subscribeToNewsletter } from "@/lib/mailchimp"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
@@ -22,7 +22,7 @@ const Newsletter = () => {
     try {
       setStatus("loading")
 
-      const result = await subscribe(email)
+      const result = await subscribeToNewsletter(email)
 
       if (result.success) {
         setStatus("success")
