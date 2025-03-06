@@ -27,7 +27,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-pa0v!@%dxd4q0ii%!d!49
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['*']  # Configure this properly in production
+ALLOWED_HOSTS = [
+    'siridev.onrender.com',
+    'localhost',
+    '127.0.0.1',
+]
+
+# For development
+if DEBUG:
+    ALLOWED_HOSTS += ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -78,7 +86,7 @@ WSGI_APPLICATION = 'siridev_backend.wsgi.application'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
-    "https://siridev-frontend.onrender.com",
+    "https://siridev.vercel.app",
 ]
 
 # For development
