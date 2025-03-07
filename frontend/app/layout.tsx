@@ -5,6 +5,8 @@ import "./globals.css"
 import Navbar from "@/components/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 import { SkipToContent } from "@/components/skip-to-content"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // Optimize font loading
 const inter = Inter({
@@ -72,6 +74,8 @@ export default function RootLayout({
           <SkipToContent />
           <Navbar />
           {children}
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>
